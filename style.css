@@ -1,0 +1,395 @@
+/*
+========================
+GOBAL CSS START
+========================
+*/
+
+body {	
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;    
+	background: #161110;
+	color: #d4c4a7;	
+}
+
+html,
+body,
+header,
+footer,
+main,
+nav,
+section,
+div,
+menu,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+strong,
+i,
+ol,
+ul,
+li,
+form,
+label,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s all ease;
+    -webkit-transition: 0.2s all ease;
+    -moz-transition: 0.2s all ease;
+}
+
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/*===============
+ GOBAL CSS END  
+ ============== */
+ .main-wrapper {
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.nav-wrapper img {
+    max-height: 100vh;
+    margin: auto 0;
+}
+
+.nav-wrapper {
+    position: relative;
+    display: flex;
+}
+.custom-navbar-nav {
+    position: absolute;
+    left: 47%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.custom-navbar-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.custom-navbar-nav ul li a {
+    font-size: 1.3vw;
+    display: block;
+    padding: 10px 0;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.custom-navbar-nav ul li .gap-between {
+    height: 18vh;
+}
+
+.custom-navbar-nav ul li:nth-child(2) {
+    margin-left: 1vw;
+}
+.custom-navbar-nav ul li:nth-child(3) {
+    margin-left: 2vw;
+}
+.custom-navbar-nav ul li:nth-child(4) {
+    margin-left: 3vw;
+}
+.custom-navbar-nav ul li:nth-child(6) {
+    margin-left: 3vw;
+}
+.custom-navbar-nav ul li:nth-child(7) {
+    margin-left: 2vw;
+}
+.custom-navbar-nav ul li:nth-child(8) {
+    margin-left: 1vw;
+}
+
+.custom-navbar-nav ul li a:hover {
+    color: #00bcd4;
+    transform: translateX(10px)
+}
+
+
+.main-content {
+    flex: 1;
+    padding-top: 30px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+}
+.topbar-wp ul {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+}
+.topbar-wp .header-graphic img {
+    max-width: 200px;
+}
+.topbar-wp ul li button {
+    background: transparent;
+    border: none;
+    color: #d4c4a7;
+    font-size: 25px;
+}
+.topbar-wp ul li a i {
+    font-size: 30px;
+}
+.topbar-wp ul li a:hover {
+    opacity: 0.8;
+}
+
+.title h2 {
+    font-size: 3vw;
+}
+.toggle-btn button {
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: #d4c4a7;
+}
+
+.person-images img {
+ 
+    max-width: 100%;
+}
+
+.lang-list li {
+	font-size: 28px;
+}
+
+
+
+/* =========================
+   DISCOGRAPHY – CD STYLE
+========================= */
+
+.discography-wrap{
+    flex: 1;
+    padding: 40px 40px 40px 40px;
+    background: #b9b9b9;
+    color: #222;
+    overflow: hidden;
+}
+
+.discography-grid{
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* ===== CD ===== */
+.cd-wrap{
+    position: relative;
+    width: 520px;
+}
+
+.cd{
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 6px solid #caa86a;
+    box-shadow: 0 20px 40px rgba(0,0,0,.25);
+}
+
+.cd-half{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.cd-left{ left: 0; }
+.cd-right{ right: 0; }
+
+.cd-rings{
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle,
+            transparent 0%,
+            transparent 33%,
+            rgba(255,255,255,.25) 34%,
+            transparent 36%,
+            transparent 48%,
+            rgba(255,255,255,.15) 49%,
+            transparent 51%
+        );
+    pointer-events: none;
+}
+
+.cd-hole{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background: #f5f5f5;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 20px rgba(0,0,0,.2);
+}
+
+/* ===== Album thumbs ===== */
+.cd-thumbs{
+    position: absolute;
+    left: 360px;
+    top: 20px;
+}
+
+.album-thumb{
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(255,255,255,.6);
+    background: #eee;
+    margin-bottom: 30px;
+    cursor: pointer;
+    box-shadow: 0 12px 24px rgba(0,0,0,.2);
+    opacity: .75;
+    transition: .3s;
+}
+
+.album-thumb.active,
+.album-thumb:hover{
+    opacity: 1;
+    transform: scale(1.08);
+}
+
+.album-thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== RIGHT SIDE ===== */
+.album-title{
+    font-size: 42px;
+    color: #0aa489;
+    margin-bottom: 25px;
+}
+
+.tracklist{
+    max-width: 560px;
+    margin-bottom: 30px;
+}
+
+.track{
+    display: grid;
+    grid-template-columns: 30px 1fr 160px 70px;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(0,0,0,.15);
+    color: #555;
+}
+
+.track .controls{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.play-btn{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,.2);
+}
+
+.play-btn i{
+    font-size: 12px;
+}
+
+.progress{
+    width: 120px;
+    height: 6px;
+    background: rgba(0,0,0,.15);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress span{
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: #0aa489;
+}
+
+/* ===== Album notes ===== */
+.album-notes{
+    max-width: 720px;
+    min-height: 220px;
+    background: rgba(255,255,255,.35);
+    border-radius: 40px;
+    padding: 30px;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* ===== Responsive ===== */
+@media(max-width:1200px){
+    .discography-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .cd-thumbs{
+        position: relative;
+        left: auto;
+        top: auto;
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .album-thumb{
+        margin-bottom: 0;
+    }
+}
+
+
+
+
+
