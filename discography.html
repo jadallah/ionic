@@ -38,41 +38,24 @@
       </header>
 
       <section class="discography-layout">
-        <div class="disc-left-col">
-          <div class="main-disc">
-            <div class="disc-half disc-photo"></div>
-            <div class="disc-half disc-art"></div>
+        <div class="disc-container">
+          <div id="main-disc">
+            <img id="main-disc-image" src="images/disc/art-1.jpg" alt="Main Disc" />
+            <img id="album-cover" src="" alt="Album Cover" />
+            <div class="disc-label">Discography</div>
           </div>
-          <div class="disc-side-albums">
-            <button class="mini-album active" type="button" data-title="Ishraq-Reminiscence">
-              <img src="images/disc/thumb-1.jpg" alt="Ishraq-Reminiscence" />
-              <span>Ishraq-Reminiscence</span>
-            </button>
-            <button class="mini-album" type="button" data-title="Hajess">
-              <img src="images/disc/photo-1.jpg" alt="Hajess" />
-              <span>Hajess</span>
-            </button>
-            <button class="mini-album" type="button" data-title="Glory of The Irises">
-              <img src="images/disc/art-1.jpg" alt="Glory of The Irises" />
-              <span>Glory of The Irises</span>
-            </button>
+
+          <div class="cd-list">
+            <img src="images/disc/thumb-1.jpg" alt="CD1" class="cd-thumb" data-album="homayoun" />
+            <img src="images/disc/photo-1.jpg" alt="CD2" class="cd-thumb" data-album="hajess" />
+            <img src="images/disc/art-1.jpg" alt="CD3" class="cd-thumb" data-album="glory" />
           </div>
         </div>
 
-        <div class="disc-right-col">
-          <h1 id="albumTitle">Homayoun</h1>
-          <ul class="track-listing">
-            <li><span>-1 Track 1</span><div class="line"><span style="width:48%"></span></div></li>
-            <li><span>-2 Track 2</span><div class="line"><span style="width:50%"></span></div></li>
-            <li><span>-3 Track 3</span><div class="line"><span style="width:46%"></span></div></li>
-            <li><span>-4 Track 4</span><div class="line"><span style="width:49%"></span></div></li>
-            <li><span>-5 Track 5</span><div class="line"><span style="width:51%"></span></div></li>
-            <li><span>-6 Track 6</span><div class="line"><span style="width:45%"></span></div></li>
-            <li><span>-7 Track 7</span><div class="line"><span style="width:47%"></span></div></li>
-            <li><span>-8 Track 8</span><div class="line"><span style="width:44%"></span></div></li>
-            <li><span>-9 Track 9</span><div class="line"><span style="width:52%"></span></div></li>
-          </ul>
-        </div>
+        <aside class="track-list">
+          <h2 id="album-title">Discography</h2>
+          <div id="tracks"></div>
+        </aside>
       </section>
 
       <section class="album-detail-box" aria-label="album notes"></section>
