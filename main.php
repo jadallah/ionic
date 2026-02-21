@@ -1,0 +1,70 @@
+<?php
+function render_page(string $title, string $heading, string $description): void
+{
+?>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></title>
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<main class="main-wrapper">
+    <div class="nav-wrapper">
+        <img src="images/logo.png" alt="">
+        <div class="custom-navbar-nav">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="biography.php">Biography</a></li>
+                <li><a href="story-behind.php">The Story Behind</a></li>
+                <li><a href="media-gallery.php">Media Gallery</a></li>
+                <li><div class="gap-between"></div></li>
+                <li><a href="projects-tours.php">Projects and Tours</a></li>
+                <li><a href="discography.php">Discography</a></li>
+                <li><a href="online-store.php">Online Store</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content inner-page-content">
+        <div class="topbar-wp d-flex align-items-center justify-content-between justify-content-sm-end ps-3 pe-4 pe-md-5 gap-2 gap-sm-3">
+            <div class="header-graphic">
+                <img class="d-none d-md-block" src="images/graphic.png" alt="">
+                <img class="d-md-none" src="images/logo-mobile.jpg" alt="">
+            </div>
+            <ul class="d-none d-sm-flex">
+                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-square-youtube"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-square-instagram"></i></a></li>
+            </ul>
+            <div class="lang-list">
+                <ul class="gap-2 align-items-center">
+                    <li><a href="#">English</a></li>
+                    <li>|</li>
+                    <li><a href="#">عربي</a></li>
+                </ul>
+            </div>
+            <div class="toggle-btn d-md-none">
+                <button><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <section class="content-page-panel">
+            <h1><?php echo htmlspecialchars($heading, ENT_QUOTES, 'UTF-8'); ?></h1>
+            <p><?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?></p>
+        </section>
+    </div>
+</main>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
+<?php
+}

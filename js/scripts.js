@@ -24,21 +24,33 @@
 				homayoun: {
 					title: 'Homayoun',
 					cover: 'images/disc/thumb-1.jpg',
-					tracks: ['Track 1', 'Track 2', 'Track 3']
+					tracks: [
+						{ title: 'Track 1', file: 'audio/track1.mp3' },
+						{ title: 'Track 2', file: 'hdi.mp3' },
+						{ title: 'Track 3', file: 'audio/track1.mp3' }
+					]
 				},
 				hajess: {
 					title: 'Hajess',
 					cover: 'images/disc/photo-1.jpg',
-					tracks: ['Track 1', 'Track 2']
+					tracks: [
+						{ title: 'Track 1', file: 'hdi.mp3' },
+						{ title: 'Track 2', file: 'audio/track1.mp3' }
+					]
 				},
 				glory: {
 					title: 'Glory of the Irises',
 					cover: 'images/disc/art-1.jpg',
-					tracks: ['Intro', 'Melody']
+					tracks: [
+						{ title: 'Intro', file: 'audio/track1.mp3' },
+						{ title: 'Melody', file: 'hdi.mp3' }
+					]
 				}
 			};
 
 			let currentAlbumKey = null;
+			const discAudioPlayer = document.getElementById('disc-audio-player');
+			let activeTrackButton = null;
 
 			function positionCDsInArc() {
 				const thumbs = document.querySelectorAll('.cd-thumb');
@@ -65,15 +77,25 @@
 				const total = thumbs.length;
 
 				thumbs.forEach((thumb, index) => {
-					const t = total === 1 ? 0.5 : index / (total - 1);
-					const angle = startAngle + t * (endAngle - startAngle);
+					const pos = total === 1 ? 0.5 : index / (total - 1);
+					const angle = startAngle + pos * (endAngle - startAngle);
 					const rad = angle * (Math.PI / 180);
 					const x = discCenterX + radius * Math.cos(rad) - thumb.offsetWidth / 2;
 					const y = discCenterY + radius * Math.sin(rad) - thumb.offsetHeight / 2;
-
 					thumb.style.left = x + 'px';
 					thumb.style.top = y + 'px';
 				});
+			}
+
+			function stopDiscAudio() {
+				if (!discAudioPlayer) return;
+				discAudioPlayer.pause();
+				discAudioPlayer.currentTime = 0;
+				$('#main-disc').removeClass('spinning');
+				if (activeTrackButton) {
+					activeTrackButton.textContent = '▶';
+					activeTrackButton = null;
+				}
 			}
 
 			function setLandingView() {
@@ -82,7 +104,7 @@
 				$('.disc-label').text('Discography').show();
 				$('#tracks').empty();
 				$('.cd-thumb').removeClass('active');
-				$('#main-disc').removeClass('spinning');
+				stopDiscAudio();
 				currentAlbumKey = null;
 			}
 
@@ -93,6 +115,7 @@
 				}
 
 				currentAlbumKey = albumKey;
+				stopDiscAudio();
 				$('.cd-thumb').removeClass('active');
 				$('.cd-thumb[data-album="' + albumKey + '"]').addClass('active');
 				$('#album-title').text(album.title);
@@ -102,15 +125,56 @@
 				const tracksContainer = $('#tracks');
 				tracksContainer.empty();
 
-				album.tracks.forEach(function(trackTitle, i) {
+				album.tracks.forEach(function(track, i) {
 					const progressWidth = 42 + (i * 8);
 					tracksContainer.append(
 						'<div class="track-entry">' +
-						'<span>-' + (i + 1) + ' ' + trackTitle + '</span>' +
+						'<span>-' + (i + 1) + ' ' + track.title + '</span>' +
 						'<div class="waveform"><span style="width:' + progressWidth + '%"></span></div>' +
-						'<button type="button" aria-label="Play">▶</button>' +
+						'<button type="button" class="track-play-btn" data-file="' + track.file + '" aria-label="Play">▶</button>' +
 						'</div>'
 					);
+				});
+			}
+
+			$(document).on('click', '.track-play-btn', function() {
+				if (!discAudioPlayer) {
+					return;
+				}
+
+				const file = $(this).data('file');
+				if (!file) {
+					return;
+				}
+
+				if (activeTrackButton && activeTrackButton !== this) {
+					activeTrackButton.textContent = '▶';
+				}
+
+				if (activeTrackButton === this && !discAudioPlayer.paused) {
+					discAudioPlayer.pause();
+					this.textContent = '▶';
+					$('#main-disc').removeClass('spinning');
+					return;
+				}
+
+				discAudioPlayer.src = file;
+				discAudioPlayer.play().then(() => {
+					this.textContent = '⏸';
+					activeTrackButton = this;
+					$('#main-disc').addClass('spinning');
+				}).catch(() => {
+					this.textContent = '▶';
+				});
+			});
+
+			if (discAudioPlayer) {
+				discAudioPlayer.addEventListener('ended', function() {
+					if (activeTrackButton) {
+						activeTrackButton.textContent = '▶';
+						activeTrackButton = null;
+					}
+					$('#main-disc').removeClass('spinning');
 				});
 			}
 
