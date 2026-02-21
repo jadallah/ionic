@@ -19,6 +19,12 @@
 			  $('.toggle-btn button i').removeClass('fa-xmark').addClass('fa-bars');
 			}
 		  });
+
+		  $('.mini-album').click(function() {
+			$('.mini-album').removeClass('active');
+			$(this).addClass('active');
+			$('#albumTitle').text($(this).data('title'));
+		  });
 				
 		
 		
