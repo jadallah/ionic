@@ -610,43 +610,4 @@ img {
 
 /* =========================
    Generic Inner Pages
-========================= */
-.inner-page-content {
-    justify-content: center;
-}
-
-.content-page-panel {
-    max-width: 860px;
-    margin: auto;
-    padding: 50px;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(2px);
-}
-
-.content-page-panel h1 {
-    font-size: 3.2vw;
-    margin-bottom: 18px;
-    color: #00bcd4;
-}
-
-.content-page-panel p {
-    font-size: 1.25vw;
-    line-height: 1.7;
-    color: #d4c4a7;
-}
-
-@media (max-width: 991px) {
-    .content-page-panel {
-        margin: 24px;
-        padding: 28px;
-    }
-
-    .content-page-panel h1 {
-        font-size: 34px;
-    }
-
-    .content-page-panel p {
-        font-size: 18px;
-    }
 }
